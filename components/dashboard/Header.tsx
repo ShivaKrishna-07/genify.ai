@@ -4,7 +4,7 @@ import { Search } from 'lucide-react';
 const Header = () => {
 
   return (
-    <div className="p-5 shadow-sm border-b-2 flex justify-between items-center">
+    <div className="p-5 bg-white shadow-sm border-b-2 flex justify-between items-center">
       <div className="flex items-center gap-2 p-2 border rounded-md max-w-lg">
         <Search />
         <input
