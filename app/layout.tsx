@@ -15,7 +15,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
+    
     <ClerkProvider>
       <html>
         <body className={outfit.className}>{children}</body>

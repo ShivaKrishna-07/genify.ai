@@ -1,13 +1,25 @@
-import React from "react";
-import SideNav from "../../components/dashboard/SideNav";
-import Header from "../../components/dashboard/Header";
+"use client"
+
+import React, { useState } from "react";
+import SideNav from "../../components/SideNav";
+import Header from "../../components/Header";
+import { TotalUsageContext } from "@/context/TotalUsageContext";
+import { UpdateCreditUsageContext } from "@/context/UpdateCreditUsageContext";
 
 function layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
+  const [totalUsage, setTotalUsage] = useState<Number>(0);
+  const [updateCreditUsage, setUpdateCreditUsage] = useState<any>(0);
+
   return (
+    
+    <TotalUsageContext.Provider value={{totalUsage, setTotalUsage}}>
+      <UpdateCreditUsageContext.Provider value={{updateCreditUsage, setUpdateCreditUsage}}>
     <div className="bg-slate-100 h-screen">
       <div className="md:w-64 hidden md:block fixed">
         <SideNav />
@@ -17,6 +29,8 @@ function layout({
         {children}
       </div>
     </div>
+    </UpdateCreditUsageContext.Provider>
+    </TotalUsageContext.Provider>
   );
 }
 

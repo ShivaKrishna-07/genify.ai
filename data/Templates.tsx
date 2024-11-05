@@ -4,7 +4,7 @@ export default  [
         desc:'An AI tool that generate blog title depends on yout blog information',
         category:'Blog',
         icon:'https://cdn-icons-png.flaticon.com/128/4186/4186534.png',
-        aiPrompt:'Give me 5 blog topic idea in bullet wise only based on give niche & outline and give me result in Rich text editor format',
+        aiPrompt:'Give me 5 blog topic idea(no Description) in bullet wise only based on give niche & outline and give me result in Rich text editor format',
         slug:'generate-blog-title',
         form:[
             {
@@ -64,7 +64,7 @@ export default  [
         category: 'Youtube Tools',
         icon: 'https://cdn-icons-png.flaticon.com/128/402/402075.png',
         slug: 'youtube-seo-title',
-        aiPrompt: 'Give me Best SEO optimized high ranked 5 title ideas bullet wise only bases on keywords and outline and give me result in HTML tags format',
+        aiPrompt: 'Give me Best SEO optimized high ranked 5 title ideas bullet wise only bases on keywords and outline',
         form: [
             {
                 label: 'Enter your youtube video topic keyowords',

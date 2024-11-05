@@ -11,9 +11,12 @@ import { AIOutput } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { use } from "react";
 import moment from 'moment'
+import { TotalUsageContext } from "@/context/TotalUsageContext";
+import { useRouter } from "next/navigation";
+import { UpdateCreditUsageContext } from "@/context/UpdateCreditUsageContext";
 
 interface PROPS {
   params: Promise<{
@@ -26,6 +29,9 @@ const CreateNewContent = (props: PROPS) => {
   const [aiOutput, setAiOutput] = useState<string>('');
   
   const {user} = useUser();
+  const router = useRouter()
+  const {totalUsage} = useContext(TotalUsageContext);
+  const {updateCreditUsage, setUpdateCreditUsage} = useContext(UpdateCreditUsageContext);
   
   const params = use(props.params);
 
@@ -34,6 +40,12 @@ const CreateNewContent = (props: PROPS) => {
   );
 
   const GenerateAIContent = async (formData: any) => {
+
+    if(totalUsage >= 100000){
+      router.push('/dashboard/billing')
+      return;
+    }
+
     setLoading(true);
     const selectedPrompt = selectedTemplate?.aiPrompt;
     const FinalAiPrompt = JSON.stringify(formData) + ', ' + selectedPrompt;
@@ -44,6 +56,8 @@ const CreateNewContent = (props: PROPS) => {
     
     await SaveInDB(JSON.stringify(formData),selectedTemplate?.slug,result?.response.text())
     setLoading(false);
+
+    setUpdateCreditUsage(Date.now());
   };
 
   const SaveInDB = async (formData:any, slug:any, aiOutput:any) => {
@@ -54,9 +68,6 @@ const CreateNewContent = (props: PROPS) => {
       createdBy: user?.primaryEmailAddress?.emailAddress,
       createdAt: moment().format('DD/MM/YYYY')
     })
-
-    console.log(result);
-    
   }
 
   return (
