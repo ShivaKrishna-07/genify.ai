@@ -32,7 +32,7 @@ const SideNav = () => {
     <div className="h-screen relative bg-white p-5 shadow-sm border">
       <Link href={'/'} className="flex flex-col items-center justify-center">
         <Image alt="logo" width={50} height={50} src="/logo.svg" />
-        <h3 className="font-bold text-2xl">Genify.ai</h3>
+        <h3 className="font-bold text-2xl">Genify<span className="font-bold text-3xl text-primary">.</span>ai</h3>
       </Link>
       <hr className="border my-6" />
       <div className="mt-10">
