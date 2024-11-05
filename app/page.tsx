@@ -91,9 +91,9 @@ export default function Home() {
 
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-2">
-          <a
-            className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
-            href="#"
+          <Link
+            className="group bg-slate-50 flex flex-col justify-center hover:bg-gray-50 rounded-xl border p-4 md:p-7 dark:hover:bg-neutral-800"
+            href="/dashboard"
           >
             <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
               <svg
@@ -138,11 +138,11 @@ export default function Home() {
                 </svg>
               </span>
             </div>
-          </a>
+          </Link>
 
-          <a
-            className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
-            href="#"
+          <Link
+            className="group bg-slate-50 border flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
+            href="/dashboard"
           >
             <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
               <svg
@@ -188,11 +188,11 @@ export default function Home() {
                 </svg>
               </span>
             </div>
-          </a>
+          </Link>
 
-          <a
-            className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
-            href="#"
+          <Link
+            className="group bg-slate-50 flex border flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
+            href="/dashboard"
           >
             <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
               <svg
@@ -236,11 +236,11 @@ export default function Home() {
                 </svg>
               </span>
             </div>
-          </a>
+          </Link>
 
-          <a
-            className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
-            href="#"
+          <Link
+            className="group bg-slate-50 flex flex-col justify-center hover:bg-gray-50 rounded-xl border p-4 md:p-7 dark:hover:bg-neutral-800"
+            href="/dashboard"
           >
             <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
               <svg
@@ -284,7 +284,7 @@ export default function Home() {
                 </svg>
               </span>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

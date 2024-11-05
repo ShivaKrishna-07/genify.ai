@@ -21,6 +21,9 @@ export default function RootLayout({
     
     <ClerkProvider>
       <html>
+        <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        </head>
         <body className={outfit.className}>{children}</body>
       </html>
     </ClerkProvider>
