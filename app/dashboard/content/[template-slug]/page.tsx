@@ -41,15 +41,16 @@ const CreateNewContent = (props: PROPS) => {
     const result = await chatSession.sendMessage(FinalAiPrompt);
 
     setAiOutput(result.response.text());
-    SaveInDB(formData, selectedTemplate?.slug, aiOutput);
+    
+    await SaveInDB(JSON.stringify(formData),selectedTemplate?.slug,result?.response.text())
     setLoading(false);
   };
 
-  const SaveInDB = async (formData:any, slug:any, aiResp:any) => {
+  const SaveInDB = async (formData:any, slug:any, aiOutput:any) => {
     const result = await db.insert(AIOutput).values({
       formData:formData,
       templateSlug:slug,
-      aiResponse: aiResp,
+      aiResponse: aiOutput,
       createdBy: user?.primaryEmailAddress?.emailAddress,
       createdAt: moment().format('DD/MM/YYYY')
     })
