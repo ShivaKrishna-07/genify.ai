@@ -71,21 +71,23 @@ const CreateNewContent = (props: PROPS) => {
   }
 
   return (
-    <div className="p-5">
-      <Link href={"/dashboard"}>
-        <Button>
-          <ArrowLeft /> Back
-        </Button>
-      </Link>
-      <div className="grid grid-col-1 md:grid-cols-2 py-5 p-5 gap-5">
-        <FormSection
-          userFormInput={(v: any) => GenerateAIContent(v)}
-          selectedTemplate={selectedTemplate}
-          loading={loading}
-        />
-        <OutputSection aiOutput={aiOutput} />
-      </div>
-    </div>
+    <div className='p-5'>
+            <Link href={"/dashboard"}>
+                <Button> <ArrowLeft/> Back</Button>
+            </Link>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 py-5 '>
+                {/* FormSection  */}
+                    <FormSection 
+                    selectedTemplate={selectedTemplate}
+                    userFormInput={(v:any)=>GenerateAIContent(v)}
+                    loading={loading} 
+                    />
+                {/* OutputSection  */}
+                <div className='col-span-2'>
+                    <OutputSection aiOutput={aiOutput}/>
+                    </div>
+            </div>
+        </div>
   );
 };
 
